@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactToolTip from 'react-tooltip';
 import { motion } from 'framer-motion';
 import AppWrap from '../../wrapper';
+import MotionWrap from '../../wrapper/MotionWrap';
 import { urlFor, client } from '../../client';
 import './Skills.scss';
 
@@ -20,6 +21,7 @@ function Skills() {
       setSkills(data);
     });
   }, []);
+
   return (
     <>
       <h2 className='head-text'>
@@ -83,4 +85,8 @@ function Skills() {
   );
 }
 
-export default AppWrap(Skills, 'skills');
+export default AppWrap(
+  MotionWrap(Skills, 'app__skills'),
+  'skills',
+  'app__whitebg'
+);
